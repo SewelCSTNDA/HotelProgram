@@ -20,5 +20,10 @@ namespace HotelProgram
             Status = status;
             BookingPrice = price;
         }
+
+        public virtual string DisplayDetails()
+        {
+            return $"{RoomNumber} {Status} {BookingPrice}";
+        }
     }
 }

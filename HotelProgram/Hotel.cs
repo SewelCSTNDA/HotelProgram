@@ -24,9 +24,33 @@ namespace HotelProgram
             _allRooms = new List<HotelRoom>();
         }
 
-        public void addRoom(HotelRoom room)
+        public void DisplayAvailableRooms()
         {
-            _allRooms.Add(room);
+            foreach (HotelRoom room in _allRooms)
+            {
+                Console.WriteLine("\t" + room.DisplayDetails());
+            }
+        }
+
+        public void DisplayBookedRooms()
+        {
+            foreach (HotelRoom room in _allRooms)
+            {    
+                if (room.Status == false)
+                {
+                    Console.WriteLine("\t" + room.DisplayDetails());
+                }
+            }
+        }
+
+        public void ReserveRoom(HotelRoom room)
+        {
+            room.Status = false;
+        }
+
+        public virtual string DisplayDetails()
+        {
+            return $"{HotelName} {Location} {_allRooms}";
         }
     }
 }
